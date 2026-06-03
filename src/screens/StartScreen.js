@@ -53,7 +53,7 @@ export default function StartScreen() {
       }).then(() => {
         setCurrentPlan(plan);
         const planName = plan.charAt(0).toUpperCase() + plan.slice(1);
-        setPaymentBanner(`Felicitari! Ai activat planul ${planName} 🎉`);
+        setPaymentBanner(`Felicitari terminatule! Ai activat planul ${planName}`);
         setTimeout(() => setPaymentBanner(null), 5000);
       }).catch(() => {
         setPaymentBanner('Plata a reusit! Reincarca pagina daca planul nu apare.');

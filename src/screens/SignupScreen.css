@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap');
+
+.signup-page { display: flex; min-height: 100vh; background: #fff; font-family: 'Outfit', sans-serif; }
+
+/* ─── LEFT PANEL ─────────────────────────────────────────────────────────── */
+.signup-panel {
+  flex: 0 0 38%; background: #B6EFFF;
+  display: flex; align-items: stretch;
+  border-right: 1px solid rgba(0,0,0,0.06);
+}
+.signup-panel__content {
+  display: flex; flex-direction: column;
+  padding: 48px 48px; width: 100%; gap: 0;
+}
+.signup-panel__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 56px; }
+.signup-panel__logo-mark {
+  width: 30px; height: 30px; border: 1.5px solid rgba(0,0,0,0.25);
+  border-radius: 5px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-weight: 600; color: #0d0d0d;
+}
+.signup-panel__logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; color: #0d0d0d; letter-spacing: 0.1em; }
+.signup-panel__steps-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(0,0,0,0.4); margin-bottom: 20px; }
+.signup-panel__steps { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.signup-step-item { display: flex; align-items: flex-start; gap: 14px; padding: 13px 14px; border-radius: 8px; transition: background 0.2s; opacity: 0.4; }
+.signup-step-item--active { background: rgba(0,0,0,0.07); opacity: 1; }
+.signup-step-item--done { opacity: 0.65; }
+.signup-step-item__num {
+  width: 28px; height: 28px; border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 600; color: rgba(0,0,0,0.5); flex-shrink: 0;
+  font-family: 'Cormorant Garamond', serif;
+}
+.signup-step-item--active .signup-step-item__num { background: #0d0d0d; color: #fff; border-color: #0d0d0d; }
+.signup-step-item--done .signup-step-item__num { background: rgba(0,0,0,0.08); color: #0d0d0d; border-color: rgba(0,0,0,0.15); }
+.signup-step-item__label { font-size: 0.85rem; font-weight: 500; color: #0d0d0d; margin-bottom: 2px; }
+.signup-step-item__desc { font-size: 0.73rem; color: rgba(0,0,0,0.45); }
+.signup-panel__bottom { margin-top: 48px; }
+.signup-panel__already { font-size: 0.82rem; color: rgba(0,0,0,0.5); }
+.signup-panel__link { color: #0d0d0d; text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
+
+/* ─── RIGHT SIDE ─────────────────────────────────────────────────────────── */
+.signup-form-side { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 24px; background: #fff; overflow-y: auto; }
+.signup-form-card { width: 440px; max-width: 440px; min-width: 0; animation: authFadeUp 0.5s ease both; }
+
+.signup-progress { height: 2px; background: #e8e8e8; border-radius: 2px; margin-bottom: 40px; overflow: hidden; }
+.signup-progress__fill { height: 100%; background: #0d0d0d; border-radius: 2px; transition: width 0.45s cubic-bezier(0.4,0,0.2,1); }
+
+.signup-form-card__header { margin-bottom: 32px; }
+.signup-step-badge { display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #888; margin-bottom: 12px; }
+.signup-form-card__title { font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-weight: 400; color: #0d0d0d; margin-bottom: 6px; }
+.signup-form-card__sub { font-size: 0.86rem; color: #888; font-weight: 300; }
+
+/* Google */
+.btn-google {
+  width: 100%; display: flex; align-items: center; justify-content: center; gap: 11px;
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 8px; padding: 13px;
+  font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 400; color: #3a3a3a;
+  cursor: pointer; transition: border-color 0.2s, background 0.2s;
+}
+.btn-google:hover:not(:disabled) { border-color: #bbb; background: #fafafa; }
+.btn-google:disabled { opacity: 0.45; cursor: default; }
+
+.auth-divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; color: #c8c8c8; font-size: 0.78rem; }
+.auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: #e8e8e8; }
+
+/* Fields */
+.signup-form { display: flex; flex-direction: column; gap: 16px; }
+.signup-fields { display: flex; flex-direction: column; gap: 16px; animation: authFadeUp 0.3s ease both; }
+.signup-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+.auth-field { display: flex; flex-direction: column; gap: 6px; }
+.auth-field__label { font-size: 0.7rem; font-weight: 600; color: #888; letter-spacing: 0.1em; text-transform: uppercase; }
+.auth-field__wrap { position: relative; display: flex; align-items: center; }
+.auth-field__input {
+  width: 100%;
+  background: #f8f9fa;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 13px 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  color: #0d0d0d;
+  outline: none;
+  height: 48px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.auth-field__input::placeholder { color: #c8c8c8; }
+.auth-field__input:focus { border-color: #888; background: #fff; }
+.auth-field__select { cursor: pointer; background-color: #f8f9fa; }
+.auth-field__select option { background: #fff; color: #0d0d0d; }
+.auth-field__wrap--select::after { content: '\25BE'; position: absolute; right: 14px; color: #888; pointer-events: none; font-size: 0.7rem; }
+.auth-field__eye { position: absolute; right: 12px; background: none; border: none; cursor: pointer; font-size: 0.72rem; color: #888; font-family: 'Outfit', sans-serif; padding: 4px; transition: color 0.2s; }
+.auth-field__eye:hover { color: #0d0d0d; }
+
+.signup-pass-strength { display: flex; align-items: center; gap: 6px; margin-top: 7px; }
+.signup-pass-bar { flex: 1; height: 2px; border-radius: 2px; background: #e8e8e8; transition: background 0.3s; }
+.signup-pass-bar--fill { background: #0d0d0d; }
+.signup-pass-label { font-size: 0.7rem; color: #888; min-width: 50px; }
+
+.auth-error { display: flex; align-items: center; gap: 8px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 7px; padding: 10px 14px; font-size: 0.82rem; color: #c0392b; animation: authFadeUp 0.25s ease; }
+
+.signup-form__actions { display: flex; gap: 10px; align-items: center; margin-top: 6px; }
+.btn-back {
+  background: #fff; border: 1px solid #e8e8e8; color: #888;
+  font-family: 'Outfit', sans-serif; font-size: 0.86rem; padding: 13px 18px;
+  border-radius: 8px; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.btn-back:hover:not(:disabled) { border-color: #888; color: #0d0d0d; }
+.btn-auth-submit {
+  flex: 1; background: #0d0d0d; color: #fff; font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem; font-weight: 500; padding: 14px; border-radius: 8px; border: none;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  gap: 8px; transition: background 0.2s, transform 0.15s; letter-spacing: 0.02em;
+}
+.btn-auth-submit:hover:not(:disabled) { background: #222; transform: translateY(-1px); }
+.btn-auth-submit:disabled { opacity: 0.4; cursor: default; }
+
+.auth-spinner { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.25); border-top-color: #fff; border-radius: 50%; animation: spin 0.65s linear infinite; display: inline-block; }
+
+@keyframes authFadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 768px) { .signup-panel { display: none; } .signup-form-side { padding: 32px 20px; } .signup-row { grid-template-columns: 1fr; } }

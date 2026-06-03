@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --brand-blue: rgba(182, 239, 255, 1);
+  --brand-blue-soft: rgba(182, 239, 255, 0.18);
+  --brand-blue-mid: rgba(182, 239, 255, 0.45);
+  --deep-navy: #050d1a;
+  --navy: #0a1628;
+  --navy-mid: #0f2040;
+  --ink: #0d1f35;
+  --gold: #c8a96e;
+  --gold-light: #e2c88a;
+  --text-primary: #f0f4f8;
+  --text-secondary: #9ab0c8;
+  --text-muted: #5a7490;
+  --accent-cyan: #4ecde6;
+  --accent-teal: #2ab8c8;
+  --white: #ffffff;
+  --border: rgba(182, 239, 255, 0.12);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 4px 32px rgba(0,0,0,0.35);
+  --shadow-glow: 0 0 40px rgba(182, 239, 255, 0.12);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+  background-color: var(--deep-navy);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
 }

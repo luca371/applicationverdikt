@@ -3,7 +3,7 @@ import { Icon } from './shared/icons';
 import { PLANS } from './shared/constants';
 import { auth } from '../firebase';
 
-const SERVER_URL = process.env.REACT_APP_SERVER_URL || 'http://localhost:4000';
+const SERVER_URL = process.env.REACT_APP_SERVER_URL || '';
 
 export default function UpgradeModal({ onClose, currentPlan = 'free' }) {
   const [loadingPlan, setLoadingPlan] = useState(null);
@@ -16,7 +16,7 @@ export default function UpgradeModal({ onClose, currentPlan = 'free' }) {
     setLoadingPlan(planId);
     setError('');
     try {
-      const res = await fetch(`${SERVER_URL}/create-checkout-session`, {
+      const res = await fetch(`${SERVER_URL}/api/create-checkout-session`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ plan: planId, uid: user.uid, email: user.email }),
